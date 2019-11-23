@@ -1,24 +1,24 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+- provide(:title, "SignUp")
+.signup.row
+  .signup__title.col-md-6.offset-md-3
+    h2 新規ユーザー登録
+  .signup__form.col-md-6.offset-md-3
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-group") do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .signup__form--field
+        = f.label :name
+        = f.text_field :name, autofocus: true, required: true, class: "form-control"
+      .signup__form--field
+        = f.label "メールアドレス"
+        = f.email_field :email, autocomplete: "email", required: true, class: "form-control"
+      .signup__form--field
+        = f.label :password
+        - if @minimum_password_length
+            | (
+            = @minimum_password_length
+            | 文字以上)
+        = f.password_field :password, autocomplete: "new-password", class: "form-control"
+      .signup__form--actions
+        = f.submit "登録する", class: "btn btn-primary w-100"
+      .signup__form--links
+        = link_to "登録済みの方はコチラ", new_user_session_path

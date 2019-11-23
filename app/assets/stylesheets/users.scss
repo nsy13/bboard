@@ -1,0 +1,42 @@
+.leftSection {
+  padding: 30px 100px;
+}
+
+.leftSection__title {
+  text-align: center;
+}
+
+.leftSection__profile {
+  padding: 10px;
+  border: solid 1px rgb(230, 230, 230);
+  background-color: #fff;
+  .leftSection__profile--item {
+    margin-top: 10px;
+  }
+  .leftSection__profile--name {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .leftSection__profile--email {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+}
+
+.leftSection__editLink {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.rightSection {
+  padding: 30px 100px;
+}
+
+.rightSection__title {
+  text-align: center;
+}
+
+.rightSection__contents--card {
+  border: solid 1px rgb(230, 230, 230);
+  background-color: #fff;
+}

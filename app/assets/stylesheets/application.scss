@@ -1,0 +1,16 @@
+@import "bootstrap";
+@import "devise/*";
+@import "users";
+
+body {
+  background-color: #FDF6EB;
+}
+
+.debug_dump {
+  border: solid 1px #999;
+  background-color: #fff;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  padding: 5px;
+}

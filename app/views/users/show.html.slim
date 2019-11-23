@@ -1,2 +1,23 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+- provide(:title, "マイページ")
+.row
+  .leftSection.col-md-4
+    .leftSection__title
+      h4 ユーザー情報
+    .leftSection__profile
+      .leftSection__profile--item
+        | ユーザー名
+      .leftSection__profile--name
+        = @user.name
+      - if @user == current_user
+        .leftSection__profile--item
+          | メールアドレス
+        .leftSection__profile--email
+          = @user.email
+        .leftSection__editLink
+          = link_to "編集", edit_user_registration_path
+  .rightSection.col-md-8
+    .rightSection__title
+      h4 作成スレッド一覧
+    .rightSection__contents
+      .rightSection__contents--card
+        / = render @threads

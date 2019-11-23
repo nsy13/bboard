@@ -20,6 +20,7 @@ Bundler.require(*Rails.groups)
 module Bboard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.i18n.default_locale = :ja
     config.load_defaults 5.2
     config.generators.template_engine = :slim
     config.generators do |g|

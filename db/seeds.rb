@@ -8,6 +8,6 @@ User.create!(name: "テスト太郎",
 
 30.times do |n|
   User.create!(name: Faker::Name.name,
-               email: "no.#{n+1}-#{Faker::Internet.email}",
+               email: "no.#{n + 1}-#{Faker::Internet.email}",
                password: "password")
 end

@@ -2,6 +2,10 @@
 .login.row
   .login__title.col-md-6.offset-md-3
     h2 ログイン
+  .login__testLogin.col-md-6.offset-md-3
+    = link_to "テストユーザーでログインする", user_session_path(user: { email: "test@example.com", password: "password" }), method: :post, class: "btn btn-outline-primary w-100"
+  .divider.col-md-6.offset-md-3
+    hr
   .login__form.col-md-6.offset-md-3
     = form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-group") do |f|
       = render "devise/shared/error_messages", resource: resource

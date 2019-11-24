@@ -23,9 +23,17 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:id])
   end
 
   def update
+    @topic = Topic.find(params[:id])
+    if @topic.update_attributes(topic_params)
+      flash[:success] = "スレッド名を変更しました"
+      redirect_to @topic
+    else
+      render 'edit'
+    end
   end
 
   def destroy

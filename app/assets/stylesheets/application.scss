@@ -1,6 +1,10 @@
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 @import "devise/*";
+@import "home";
 @import "users";
+@import "topics";
 
 body {
   background-color: #FDF6EB;
@@ -13,4 +17,20 @@ body {
   width: 100%;
   margin-top: 45px;
   padding: 5px;
+}
+
+.leftSection {
+  padding: 30px 100px;
+}
+
+.leftSection__title {
+  text-align: center;
+}
+
+.rightSection {
+  padding: 30px 100px;
+}
+
+.rightSection__title {
+  text-align: center;
 }

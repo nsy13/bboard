@@ -1,0 +1,20 @@
+- provide(:title, @topic.name)
+.threadDetail
+  .threadDetail__title
+    h2 = @topic.name
+  .threadDetail__icon
+    .threadDetail__icon--posts
+      = icon('fas', 'comment')
+      // TODO: 動的にする
+      = " #{115} (仮)"
+    .threadDetail__icon--watch
+      = icon('fas', 'eye')
+      = " #{200}"
+  .threadDetail__link
+    = link_to "ウォッチリストに加える", "#"
+  .threadDetail__postForm
+    // = render "shared/post_form"
+  .threadDetail__postIndex
+    // = render @posts (posts/_post.html.slim?)
+  .threadDetail__postPagenate
+    // = paginate @posts

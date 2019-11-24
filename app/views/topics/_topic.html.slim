@@ -1,0 +1,24 @@
+.rightSection__topic
+  .rightSection__topic--title
+    = link_to topic.name, topic_path(topic)
+    p = "#{ l topic.updated_at, format: :long } 更新"
+  .rightSection__topic--content
+    = "1. #{ topic.user.name }"
+    br
+    // TODO: 動的に
+    = "2019/11/21 11:11(仮)"
+    br
+    = Faker::Lorem.paragraph
+  .divider
+    hr
+  .rightSection__topic--posts
+    = icon('fas', 'comment')
+    = " #{115} (仮)"
+  .rightSection__topic--watch
+    = icon('fas', 'eye')
+    = " #{115} (仮)"
+  .rightSection__topic--detailLink
+    = link_to "スレッドを開く", topic_path(topic)
+  .rightSection__topic--watchList
+    = link_to "ウォッチリストに加える", "#"
+

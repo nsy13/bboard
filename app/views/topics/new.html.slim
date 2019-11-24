@@ -1,0 +1,14 @@
+- provide(:title, "新しいスレッド")
+.newThread.row
+  .newThread__title.col-md-6.offset-md-3
+    h2 スレッドを作成する
+  .newThread__form.col-md-6.offset-md-3
+    = form_with model: @topic, local: true, class: "form-group" do |f|
+      .newThread__form--field
+        = f.label "スレッド名"
+        = f.text_field :name, autofocus: true, class: "form-control", require: true
+      .newThread__form--field
+        = f.label "1コメ"
+        = f.text_area :content, class: "form-control"
+      .newThread__form--actions
+        = f.submit "作成する", class: "btn btn-primary w-100"

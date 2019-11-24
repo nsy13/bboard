@@ -1,0 +1,50 @@
+.newThread__title {
+  text-align: center;
+}
+
+.newThread__form {
+  margin-top: 10px;
+  .newThread__form--field {
+    margin-top: 30px;
+  }
+  .newThread__form--actions {
+    margin-top: 50px;
+  }
+}
+
+.editThread__title {
+  text-align: center;
+}
+
+.editThread__form {
+  margin-top: 10px;
+  .editThread__form--field {
+    margin-top: 30px;
+  }
+  .editThread__form--actions {
+    margin-top: 50px;
+  }
+}
+
+.threadDetail__title {
+  text-align: center;
+}
+
+.threadDetail__icon {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 1.2em;
+  .threadDetail__icon--posts {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .threadDetail__icon--watch {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+.threadDetail__link {
+  text-align: center;
+  margin-top: 10px;
+}

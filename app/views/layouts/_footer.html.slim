@@ -1,0 +1,18 @@
+.footer
+  .container
+    .row
+      .col-md-4.footer-left
+        .footer-logo bboard
+      .col-md-4.footer-center
+        .copy-right
+          | &copy; 2019 Shuhei Yoshino
+        .twitter-link
+          = link_to "https://twitter.com/developer_ysn", class: "twitter" do
+            = icon('fab', 'twitter')
+        .github-link
+          = link_to "https://github.com/ShuheiYoshino", class: "github" do
+            = icon('fab', 'github')
+      .col-md-4.text-right.footer-right
+        ul
+          li.footer-item
+            = link_to "HOME", root_path

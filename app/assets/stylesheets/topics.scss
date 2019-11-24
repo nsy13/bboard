@@ -25,3 +25,26 @@
     margin-top: 50px;
   }
 }
+
+.threadDetail__title {
+  text-align: center;
+}
+
+.threadDetail__icon {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 1.2em;
+  .threadDetail__icon--posts {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .threadDetail__icon--watch {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+.threadDetail__link {
+  text-align: center;
+  margin-top: 10px;
+}

@@ -9,7 +9,10 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(topic_params)
+    post = @topic.posts.build(topic_post_params)
+    post.user = current_user
     if @topic.save
+      post.save
       flash[:success] = "スレッドを作成しました"
       redirect_to @topic
     else
@@ -44,6 +47,10 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:name)
+  end
+
+  def topic_post_params
+    params.require(:topic).permit(:content)
   end
 
   def correct_owner

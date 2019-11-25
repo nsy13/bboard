@@ -1,0 +1,17 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      h5.modal-title コメントを編集する
+      button.close type="button" data-dismiss="modal" aria-label="Close"
+        span aria-hidden="true" &times;
+    .modal-body
+      .post
+        .post__form
+          = form_with model: post, local: true, class: "form-group" do |f|
+            = render "shared/error_messages", object: f.object
+            = hidden_field_tag "topic_id", topic.id
+            .post__form--field
+              = f.label "コメント"
+              = f.text_area :content, class: "form-control", required: true
+            .post__form--actions
+              = f.submit "更新する", class: "btn btn-outline-primary w-100"

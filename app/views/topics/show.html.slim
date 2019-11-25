@@ -6,10 +6,10 @@
     .threadDetail__icon
       .threadDetail__icon--posts
         = icon('fas', 'comment')
-        // TODO: 動的にする
-        = " #{115} (仮)"
+        = " #{ @topic.posts.size }"
       .threadDetail__icon--watch
         = icon('fas', 'eye')
+        // TODO: 動的にする
         = " #{200}"
     .threadDetail__link
       = link_to "ウォッチリストに加える", "#"
@@ -17,6 +17,7 @@
       .threadDetail__postForm
         = render "posts/new", { post: @post, topic: @topic }
     .threadDetail__postIndex
-      // = render @posts (posts/_post.html.slim?)
+      - @posts.each.with_index(1) do |post, index|
+        = render 'posts/post', { index: index, post: post }
     .threadDetail__postPagenate
-      // = paginate @posts
+      = paginate @posts

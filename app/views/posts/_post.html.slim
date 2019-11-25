@@ -1,0 +1,7 @@
+.topic__postCard
+  .topic__postCard--userName
+    = link_to "#{index}. #{ post.user.name }", post.user
+  .topic__postCard--postTime
+    = l post.created_at, format: :long
+  .topic__postCard--content
+    = post.content

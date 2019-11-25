@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_owner, only: [:edit, :update]
+  POSTS_NUMBER = 30
 
   def new
     @topic = Topic.new
@@ -19,7 +20,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @post = Post.new
-    # @posts = @topic.posts
+    @posts = @topic.posts.page(params[:page]).per(POSTS_NUMBER)
   end
 
   def edit

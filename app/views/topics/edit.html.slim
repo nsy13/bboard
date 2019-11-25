@@ -4,6 +4,7 @@
     h2 スレッド名を変更する
   .editThread__form.col-md-6.offset-md-3
     = form_with model: @topic, local: true, class: "form-group" do |f|
+      = render "shared/error_messages", object: f.object
       .editThread__form--field
         = f.label "スレッド名"
         = f.text_field :name, autofocus: true, class: "form-control", require: true

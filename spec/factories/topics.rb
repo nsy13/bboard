@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :topic do
-    name { "MyString" }
-    user { nil }
+    name { "#{Faker::Music.band}を語るスレ" }
+    association :user
   end
 end

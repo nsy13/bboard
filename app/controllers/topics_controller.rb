@@ -1,12 +1,12 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_owner, only: [:edit, :update]
 
   def new
     @topic = Topic.new
   end
 
   def create
-    byebug
     @topic = current_user.topics.build(topic_params)
     if @topic.save
       flash[:success] = "スレッドを作成しました"
@@ -42,5 +42,13 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:name)
+  end
+
+  def correct_owner
+    @topic = Topic.find(params[:id])
+    unless @topic.user == current_user
+      flash[:danger] = "権限がありません"
+      redirect_to root_path
+    end
   end
 end

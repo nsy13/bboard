@@ -6,7 +6,6 @@ class TopicsController < ApplicationController
   end
 
   def create
-    byebug
     @topic = current_user.topics.build(topic_params)
     if @topic.save
       flash[:success] = "スレッドを作成しました"

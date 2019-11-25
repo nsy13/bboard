@@ -13,8 +13,8 @@ end
 
 30.times do |n|
   User.create!(name: Faker::Internet.username,
-               email: "no.#{n + 1}-#{Faker::Internet.email}",
+               email: "no.#{n + 2}-#{Faker::Internet.email}",
                password: "password")
-  user = User.find(n + 1)
+  user = User.find(n + 2)
   user.topics.create!(name: "#{Faker::Music.band}総合スレ")
 end

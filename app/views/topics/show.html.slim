@@ -13,6 +13,15 @@
         = " #{200}"
     .threadDetail__link
       = link_to "ウォッチリストに加える", "#"
+    .threadDetail__categoryIndex
+      - if @categories.present?
+        p 関連するタグ
+      - else
+        p 関連するタグはありません
+      - @categories.each do |cat|
+        = link_to "#" do
+          .threadDetail__categoryCard
+            = cat.name
     - if user_signed_in?
       .threadDetail__postForm
         = render "posts/new", { post: @post, topic: @topic }

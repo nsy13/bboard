@@ -5,14 +5,25 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @categories = Category.all
   end
 
   def create
+    byebug
     @topic = current_user.topics.build(topic_params)
     post = @topic.posts.build(topic_post_params)
     post.user = current_user
+    select_categories = params[:select_categories] || ""
     if @topic.save
       post.save
+      if select_categories == "" && params[:category_search].present?
+        category = Category.create(name: params[:category_search])
+        TopicCategory.create(topic_id: @topic.id, category_id: category.id)
+      elsif select_categories != ""
+        select_categories.split(',').each do |c_id|
+          TopicCategory.create(topic_id: @topic.id, category_id: c_id)
+        end
+      end
       flash[:success] = "スレッドを作成しました"
       redirect_to @topic
     else
@@ -22,6 +33,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @categories = @topic.categories
     @post = Post.new
     @posts = @topic.posts.page(params[:page]).per(POSTS_NUMBER)
   end

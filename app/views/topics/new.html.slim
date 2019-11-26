@@ -11,5 +11,10 @@
       .newThread__form--field
         = f.label "1コメ"
         = f.text_area :content, class: "form-control", required: true
+      .newThread__form--categorySearch
+        = f.label "カテゴリーを選択"
+        = text_field_tag "category_search", "", placeholder: "何も選択せずに入力・送信すると入力内容のタグが作成されます", class: "form-control"
+      .newThread__form--categoryIndex
+        = render @categories
       .newThread__form--actions
         = f.submit "作成する", class: "btn btn-primary w-100"

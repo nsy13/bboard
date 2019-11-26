@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :post do
-    title { "MyString" }
-    content { "MyString" }
-    user { nil }
-    topic { nil }
+    content { "私は#{Faker::Games::Pokemon.name}が好きです" }
+    association :user
+    association :topic
   end
 end

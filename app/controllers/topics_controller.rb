@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    @categories = Category.all
+    @categories = Category.order(:name).all
     @tagged_categories = []
   end
 
@@ -40,7 +40,7 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-    @categories = Category.all
+    @categories = Category.order(:name).all
     @tagged_categories = @topic.categories
   end
 

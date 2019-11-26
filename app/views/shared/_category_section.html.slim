@@ -1,0 +1,7 @@
+.leftSection.col-md-2.offset-md-1
+  .leftSection__title
+    h4 タグ一覧
+  .leftSection__category
+    - categories.each do |cat|
+      .leftSection__category--item
+        = link_to cat.name, cat

@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
-  POSTS_NUMBER = 30
 
   def create
     @topic = Topic.find(params[:topic_id])

@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_owner, only: [:edit, :update]
-  POSTS_NUMBER = 30
 
   def new
     @topic = Topic.new
@@ -9,7 +8,6 @@ class TopicsController < ApplicationController
   end
 
   def create
-    byebug
     @topic = current_user.topics.build(topic_params)
     post = @topic.posts.build(topic_post_params)
     post.user = current_user

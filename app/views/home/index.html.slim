@@ -1,19 +1,9 @@
 .row
-  .leftSection.col-md-4
-    .leftSection__title
-      h4 カテゴリー
-    .leftSection__category
-      | カテゴリー
-      // = render @categories
-      = link_to "ログイン", new_user_session_path
-      = link_to "新規登録", new_user_registration_path
-      - if user_signed_in?
-        = link_to "マイページ", user_path(current_user)
-        / = link_to "ログアウト", destroy_user_session_path
-  .rightSection.col-md-8
+  = render "shared/category_section", { categories: @categories }
+  .rightSection.col-md-8.offset-md-1
     .rightSection__title
       h4 スレッド一覧
-    .rightSection__postIndex
+    .rightSection__topicBody
       = render @topics
     .paginate
       = paginate @topics

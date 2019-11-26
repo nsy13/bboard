@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  TOPICS_NUMBER = 30
+  POSTS_NUMBER = 30
 
   protected
 

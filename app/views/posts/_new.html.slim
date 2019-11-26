@@ -1,0 +1,10 @@
+.post
+  .post__form
+    = form_with model: post, local: true, class: "form-group" do |f|
+      = render "shared/error_messages", object: f.object
+      = hidden_field_tag "topic_id", topic.id
+      .post__form--field
+        = f.label "コメント"
+        = f.text_area :content, class: "form-control", required: true
+      .post__form--actions
+        = f.submit "投稿", class: "btn btn-outline-primary w-100"

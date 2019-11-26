@@ -6,7 +6,10 @@ User.create!(name: "Test-Tarou",
 user = User.first
 
 5.times do |n|
-  user.topics.create!(name: "#{Faker::Game.title} について語るスレ")
+  topic = user.topics.create!(name: "#{Faker::Game.title} について語るスレ")
+  post = topic.posts.build(content: "1st コメント")
+  post.user = user
+  post.save!
 end
 
 # その他ユーザー
@@ -16,5 +19,20 @@ end
                email: "no.#{n + 2}-#{Faker::Internet.email}",
                password: "password")
   user = User.find(n + 2)
-  user.topics.create!(name: "#{Faker::Music.band}総合スレ")
+  topic = user.topics.create!(name: "#{Faker::Music.band}総合スレ")
+  post = topic.posts.build(content: "1st コメント")
+  post.user = user
+  post.save!
+  10.times do |n|
+    post = user.posts.build(content: Faker::Lorem.sentence)
+    post.topic = Topic.find(rand(1..5))
+    post.save!
+  end
+end
+
+100.times do |n|
+  user = User.find(rand(1..31))
+  post = user.posts.build(content: Faker::Lorem.sentence)
+  post.topic = Topic.find(rand(6..35))
+  post.save!
 end

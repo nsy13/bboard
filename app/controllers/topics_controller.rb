@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_owner, only: [:edit, :update]
+  POSTS_NUMBER = 30
 
   def new
     @topic = Topic.new
@@ -8,7 +9,10 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(topic_params)
+    post = @topic.posts.build(topic_post_params)
+    post.user = current_user
     if @topic.save
+      post.save
       flash[:success] = "スレッドを作成しました"
       redirect_to @topic
     else
@@ -18,7 +22,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    # @posts = @topic.posts
+    @post = Post.new
+    @posts = @topic.posts.page(params[:page]).per(POSTS_NUMBER)
   end
 
   def edit
@@ -42,6 +47,10 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:name)
+  end
+
+  def topic_post_params
+    params.require(:topic).permit(:content)
   end
 
   def correct_owner

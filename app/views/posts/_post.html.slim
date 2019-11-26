@@ -1,0 +1,12 @@
+.topic__postCard
+  .topic__postCard--userName
+    = link_to "#{index}. #{ post.user.name }", post.user
+  .topic__postCard--postTime
+    = l post.created_at, format: :long
+  .topic__postCard--content
+    = post.content
+  - if post.user == current_user
+    .topic__postCard--deleteLink
+      = link_to "削除", post_path(post), method: :delete, data: { confirm: "本当に削除しますか?" }
+    .topic__postCard--editLink
+      = link_to "編集", edit_post_path(post), remote: true

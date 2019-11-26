@@ -3,7 +3,7 @@
   .newThread__title.col-md-6.offset-md-3
     h2 スレッドを作成する
   .newThread__form.col-md-6.offset-md-3
-    = form_with model: @topic, local: true, class: "form-group" do |f|
+    = form_with model: @topic, local: true, class: "form-group thread__form" do |f|
       = render "shared/error_messages", object: f.object
       .newThread__form--field
         = f.label "スレッド名"
@@ -11,10 +11,10 @@
       .newThread__form--field
         = f.label "1コメ"
         = f.text_area :content, class: "form-control", required: true
-      .newThread__form--categorySearch
+      .thread__form--categorySearch
         = f.label "カテゴリーを選択"
         = text_field_tag "category_search", "", placeholder: "何も選択せずに入力・送信すると入力内容のタグが作成されます", class: "form-control"
-      .newThread__form--categoryIndex
-        = render @categories
+      .thread__form--categoryIndex
+        = render @categories, { tagged_categories: @tagged_categories }
       .newThread__form--actions
         = f.submit "作成する", class: "btn btn-primary w-100"

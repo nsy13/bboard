@@ -3,10 +3,15 @@
   .editThread__title.col-md-6.offset-md-3
     h2 スレッド名を変更する
   .editThread__form.col-md-6.offset-md-3
-    = form_with model: @topic, local: true, class: "form-group" do |f|
+    = form_with model: @topic, local: true, class: "thread__form form-group" do |f|
       = render "shared/error_messages", object: f.object
       .editThread__form--field
         = f.label "スレッド名"
         = f.text_field :name, autofocus: true, class: "form-control", require: true
+      .thread__form--categorySearch
+        = f.label "カテゴリーを選択"
+        = text_field_tag "category_search", "", placeholder: "何も選択せずに入力・送信すると入力内容のタグが作成されます", class: "form-control"
+      .thread__form--categoryIndex
+        = render @categories, { tagged_categories: @tagged_categories }
       .editThread__form--actions
         = f.submit "変更する", class: "btn btn-primary w-100"

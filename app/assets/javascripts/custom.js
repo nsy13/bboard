@@ -3,15 +3,15 @@ $(function(){
   setTimeout("$('.flash').fadeOut('slow')", 3000)
 })
 
-// 入力文字列からカテゴリー絞り込み
+// 新規スレッド作成ページのカテゴリー絞り込み
 $(function(){
-  $('.newThread__form--categoryIndex').children().hide();
+  $('.thread__form--categoryIndex').children().hide();
   $('input[name="category"]:checked').parent().show();
   $('input[name="category_search"]').keyup(function() {
-    $('.newThread__form--categoryIndex').children().hide();
+    $('.thread__form--categoryIndex').children().hide();
     $('input[name="category"]:checked').parent().show();
     var input_categoryName = $('input[name="category_search"]').val();
-    $('.newThread__form--categoryIndex').find("[id*='" + input_categoryName + "']").show();
+    $('.thread__form--categoryIndex').find("[id*='" + input_categoryName + "']").show();
   })
 })
 
@@ -28,6 +28,6 @@ $(function(){
       'type': 'hidden',
       'name': 'select_categories',
       'value': select_categories
-    }).appendTo($('.newThread__form').children('form'));
+    }).appendTo($('.thread__form'));
   })
 })

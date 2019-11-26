@@ -2,6 +2,7 @@
 .threadDetail
   .threadDetail__title
     h2 = @topic.name
+  - if @topic.user == current_user
   .threadDetail__icon
     .threadDetail__icon--posts
       = icon('fas', 'comment')
@@ -21,6 +22,8 @@
       = link_to category do
         .threadDetail__categoryCard
           = category.name
+  .threadDetail__editLink
+    = link_to "スレッド名とカテゴリーの編集", edit_topic_path(@topic)
   - if user_signed_in?
     .threadDetail__postForm
       = render "posts/new", { post: @post, topic: @topic }
@@ -30,3 +33,4 @@
   .threadDetail__postPagenate
     = paginate @posts
 .modalSection__postEdit.modal.fade tabindex="-1" role="dialog" aria-hidden="true"
+.modalSection__topicEdit.modal.fade tabindex="-1" role="dialog" aria-hidden="true"

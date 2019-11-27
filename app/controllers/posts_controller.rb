@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     topic = post.topic
-    post.delete
+    post.destroy
     flash[:success] = "コメントを削除しました"
     redirect_to topic_path(topic)
   end

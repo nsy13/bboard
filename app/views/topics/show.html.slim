@@ -12,7 +12,10 @@
       // TODO: 動的にする
       = " #{200}"
   .threadDetail__link
-    = link_to "ウォッチリストに加える", watchlists_path(id: @topic.id), method: :post
+    - if watching_topic?(@topic)
+      = link_to "ウォッチリストから削除する", watchlist_path(id: watching_topic_id(@topic)), method: :delete
+    - else
+      = link_to "ウォッチリストに加える", watchlists_path(id: @topic.id), method: :post
   .threadDetail__categoryIndex
     - if @categories.present?
       p 関連するタグ

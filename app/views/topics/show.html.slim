@@ -1,24 +1,36 @@
 - provide(:title, @topic.name)
-.container
-  .threadDetail
-    .threadDetail__title
-      h2 = @topic.name
-    .threadDetail__icon
-      .threadDetail__icon--posts
-        = icon('fas', 'comment')
-        = " #{ @topic.posts.size }"
-      .threadDetail__icon--watch
-        = icon('fas', 'eye')
-        // TODO: 動的にする
-        = " #{200}"
-    .threadDetail__link
-      = link_to "ウォッチリストに加える", "#"
-    - if user_signed_in?
-      .threadDetail__postForm
-        = render "posts/new", { post: @post, topic: @topic }
-    .threadDetail__postIndex
-      - @posts.each.with_index(1) do |post, index|
-        = render 'posts/post', { index: index, post: post }
-    .threadDetail__postPagenate
-      = paginate @posts
+.threadDetail
+  .threadDetail__title
+    h2 = @topic.name
+  - if @topic.user == current_user
+  .threadDetail__icon
+    .threadDetail__icon--posts
+      = icon('fas', 'comment')
+      = " #{ @topic.posts.size }"
+    .threadDetail__icon--watch
+      = icon('fas', 'eye')
+      // TODO: 動的にする
+      = " #{200}"
+  .threadDetail__link
+    = link_to "ウォッチリストに加える", "#"
+  .threadDetail__categoryIndex
+    - if @categories.present?
+      p 関連するタグ
+    - else
+      p 関連するタグはありません
+    - @categories.each do |category|
+      = link_to category do
+        .threadDetail__categoryCard
+          = category.name
+  .threadDetail__editLink
+    = link_to "スレッド名とカテゴリーの編集", edit_topic_path(@topic)
+  - if user_signed_in?
+    .threadDetail__postForm
+      = render "posts/new", { post: @post, topic: @topic }
+  .threadDetail__postIndex
+    - @posts.each.with_index(1) do |post, index|
+      = render 'posts/post', { index: index, post: post }
+  .threadDetail__postPagenate
+    = paginate @posts
 .modalSection__postEdit.modal.fade tabindex="-1" role="dialog" aria-hidden="true"
+.modalSection__topicEdit.modal.fade tabindex="-1" role="dialog" aria-hidden="true"

@@ -1,0 +1,10 @@
+- provide(:title, @category.name)
+.row
+  = render 'shared/category_section', { categories: @categories }
+  .rightSection.col-md-8.offset-md-1
+    .rightSection__title
+      h4 = "#{ @category.name }関連スレッド"
+    .rightSection__topicBody
+      = render @topics
+    .rightSection__topicPagenate
+      = paginate @topics

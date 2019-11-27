@@ -1,0 +1,6 @@
+div class="categorySelect__card" id="#{ category.name } #{ category.name.upcase } #{ category.name.downcase }"
+  - if tagged_categories.include?(category)
+    = check_box_tag :category, category.id, true, { id: "#{ category.name }" }
+  - else
+    = check_box_tag :category, category.id, false, { id: "#{ category.name }" }
+  = label_tag "#{ category.name }", category.name

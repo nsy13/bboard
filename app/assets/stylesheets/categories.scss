@@ -1,0 +1,30 @@
+.thread__form--categorySearch {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+.thread__form--categoryIndex {
+  height: 70px;
+}
+
+.categorySelect__card {
+  display: inline-block;
+  margin: 0 10px 10px 10px;
+  input {
+    margin-right: 5px;
+  }
+}
+
+.threadDetail__categoryIndex {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.threadDetail__categoryCard {
+  background-color: rgb(230, 230, 230);
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 10px 10px 10px;
+  padding: 5px;
+}

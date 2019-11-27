@@ -2,8 +2,6 @@
 @import 'font-awesome';
 @import "devise/*";
 @import "home";
-@import "header";
-@import "footer";
 @import "users";
 @import "topics";
 @import "posts";
@@ -11,6 +9,8 @@
 @import "watchlists";
 @import "flash";
 @import "bootstrap";
+@import "header";
+@import "footer";
 
 body {
   background-color: #FDF6EB;
@@ -44,4 +44,9 @@ body {
 
 .rightSection__title {
   text-align: center;
+}
+
+.rightSection__topicBody--noTopics {
+  text-align: center;
+  margin-top: 30px;
 }

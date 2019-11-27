@@ -2,6 +2,12 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_owner, only: [:edit, :update]
 
+  def index
+    store_location
+    @topics = @q.result.includes(:posts).page(params[:page]).per(TOPICS_NUMBER)
+    @categories = Category.order(:name).all
+  end
+
   def new
     @topic = Topic.new
     @categories = Category.order(:name).all
@@ -9,7 +15,8 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.topics.build(topic_params)
+    @topic = Topic.new(topic_params)
+    @topic.user = current_user
     post = @topic.posts.build(topic_post_params)
     post.user = current_user
     select_categories = params[:select_categories] || ""
@@ -71,7 +78,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, :user_id)
   end
 
   def topic_post_params

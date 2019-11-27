@@ -11,7 +11,7 @@ end
 
 5.times do |n|
   topic = user.topics.create!(name: "#{Faker::Game.title} について語るスレ")
-  3.times do |n|
+  3.times do |i|
     TopicCategory.create!(topic_id: topic.id, category_id: rand(1..20))
   end
   post = topic.posts.build(content: "1st コメント")
@@ -27,13 +27,13 @@ end
                password: "password")
   user = User.find(n + 2)
   topic = user.topics.create!(name: "#{Faker::Music.band}総合スレ")
-  2.times do |n|
+  2.times do |i|
     TopicCategory.create!(topic_id: topic.id, category_id: rand(1..20))
   end
   post = topic.posts.build(content: "1st コメント")
   post.user = user
   post.save!
-  10.times do |n|
+  10.times do |j|
     post = user.posts.build(content: Faker::Lorem.sentence)
     post.topic = Topic.find(rand(1..5))
     post.save!

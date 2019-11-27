@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  let (:category1) { create(:category) }
-  let (:category2) { build(:category) }
+  let(:category1) { create(:category) }
+  let(:category2) { build(:category) }
 
   it "is valid with different name" do
     expect(category2).to be_valid

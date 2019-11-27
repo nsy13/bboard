@@ -9,7 +9,6 @@ class TopicsController < ApplicationController
   end
 
   def create
-    byebug
     @topic = current_user.topics.build(topic_params)
     post = @topic.posts.build(topic_post_params)
     post.user = current_user

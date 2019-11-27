@@ -2,7 +2,8 @@
 
 User.create!(name: "Test-Tarou",
              email: "test@example.com",
-             password: "password")
+             password: "password",
+             admin: true)
 user = User.first
 
 20.times do |n|

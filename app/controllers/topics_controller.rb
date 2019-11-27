@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_owner, only: [:edit, :update]
+  before_action :admin_user, only: :destroy
 
   def index
     store_location
@@ -73,6 +74,9 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    Topic.find(params[:id]).destroy
+    flash[:success] = "スレッドを削除しました"
+    redirect_to root_path
   end
 
   private

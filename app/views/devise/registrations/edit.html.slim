@@ -24,15 +24,19 @@
         = f.password_field :current_password, autocomplete: "current-password", class: "form-control", required: true
       .userEdit__form--actions
         = f.submit "変更する", class: "btn btn-primary w-100"
-      .divider
-        hr
 .userDelete.row
   .userDelete__title.col-md-6.offset-md-3
+    .divider
+      hr
     h3 アカウントを削除する
-  .userDelete__description.col-md-6.offset-md-3
-    p アカウントを削除すると二度と復元できません。
-    .userDelete_desctiption--links
-      = button_to "アカウントを削除する", registration_path(resource_name),class: "btn btn-danger w-100", data: { confirm: "本当に削除しますか?" }, method: :delete
+    - if current_user.admin?
+      p テストユーザーの削除はできません
+      .userDelete_desctiption--links
+        button.btn.btn-outline-secondary.w-100 アカウントを削除する
+    - else
+      p アカウントを削除すると二度と復元できません。
+      .userDelete_desctiption--links
+        = button_to "アカウントを削除する", registration_path(resource_name),class: "btn btn-danger w-100", data: { confirm: "本当に削除しますか?" }, method: :delete
 .backHome.row
   .backHome__form.col-md-6.offset-md-3
     .backHome__form--links

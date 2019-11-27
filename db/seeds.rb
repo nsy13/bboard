@@ -6,7 +6,7 @@ User.create!(name: "Test-Tarou",
 user = User.first
 
 20.times do |n|
-  Category.create!(name: Faker::Games::Pokemon.name)
+  Category.create!(name: Faker::Games::Pokemon.unique.name)
 end
 
 5.times do |n|

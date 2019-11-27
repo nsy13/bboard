@@ -1,11 +1,11 @@
 .row
-  = render "shared/category_section", { categories: @categories }
-  .rightSection.col-md-8.offset-md-1
-    .rightSection__title
-      h4 スレッド一覧
-    .rightSection__topicBody
+  .watchList.col-md-10.offset-md-1
+    .watchList__title
+      h4 ウォッチリスト
+    .watchList__topicBody
       - if @watching_topics.blank?
-        p ウォッチリストに登録されているスレッドはありません
+        .watchList__topicBody--noTopics
+          p ウォッチリストに登録されているスレッドはありません
       - else
         = render @watching_topics
       .paginate

@@ -31,6 +31,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    store_location
     @topic = Topic.find(params[:id])
     @categories = @topic.categories
     @post = Post.new

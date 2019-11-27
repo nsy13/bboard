@@ -20,5 +20,5 @@
   .rightSection__topic--detailLink
     = link_to "スレッドを開く", topic_path(topic)
   .rightSection__topic--watchList
-    = link_to "ウォッチリストに加える", "#"
+    = link_to "ウォッチリストに加える", watchlists_path(id: topic.id), method: :post
 

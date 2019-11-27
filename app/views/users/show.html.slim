@@ -1,6 +1,6 @@
 - provide(:title, "マイページ")
 .row
-  .leftSection.col-md-4
+  .leftSection.col-md-2.offset-md-1
     .leftSection__title
       h4 ユーザー情報
     .leftSection__profile
@@ -15,9 +15,10 @@
           = @user.email
         .leftSection__editLink
           = link_to "編集", edit_user_registration_path
-  .rightSection.col-md-8
+  .rightSection.col-md-8.offset-md-1
     .rightSection__title
       h4 作成スレッド一覧
+    .rightSection__topicBody
       = render @topics
     .rightSection__topicPagenate
       = paginate @topics

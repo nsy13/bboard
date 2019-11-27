@@ -24,7 +24,7 @@
       = link_to category do
         .threadDetail__categoryCard
           = category.name
-  - if user_signed_in? && user == current_user
+  - if user_signed_in? && @topic.user == current_user
     .threadDetail__editLink
       = link_to "スレッド名とカテゴリーの編集", edit_topic_path(@topic)
   - if user_signed_in?

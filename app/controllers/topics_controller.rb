@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
   def index
     store_location
-    @topics = @q.result.includes(:posts).page(params[:page]).per(TOPICS_NUMBER)
+    @topics = @q.result.includes(:watchlists, posts: :user).page(params[:page]).per(TOPICS_NUMBER)
     @categories = Category.order(:name).all
   end
 
@@ -42,7 +42,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @categories = @topic.categories
     @post = Post.new
-    @posts = @topic.posts.page(params[:page]).per(POSTS_NUMBER)
+    @posts = @topic.posts.includes(:user).page(params[:page]).per(POSTS_NUMBER)
   end
 
   def edit

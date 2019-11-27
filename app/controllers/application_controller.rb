@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   POSTS_NUMBER = 30
 
   def set_search
-    @q = Topic.ransack(params[:q])
-    @topics = @q.result.includes(:posts).page(params[:page]).per(TOPICS_NUMBER)
+    @q = Topic.includes(:watchlists, posts: :user).ransack(params[:q])
+    @topics = @q.result.includes(:watchlists, posts: :user).page(params[:page]).per(TOPICS_NUMBER)
   end
 
   protected

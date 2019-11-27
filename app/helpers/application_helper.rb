@@ -1,13 +1,13 @@
 module ApplicationHelper
   def watching_topic?(topic)
-    Watchlist.find_by(user_id: current_user.id, topic_id: topic.id).present?
+    topic.watchlists.any? { |list| list.user_id == current_user.id }
   end
 
   def watching_topic_id(topic)
-    Watchlist.find_by(user_id: current_user.id, topic_id: topic.id).id
+    topic.watchlists.select { |list| list.user_id == current_user.id }
   end
 
   def count_watching_user(topic)
-    Watchlist.where(topic_id: topic.id).size
+    topic.watchlists.size
   end
 end

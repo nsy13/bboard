@@ -8,7 +8,7 @@ nav.navbar.navbar-fixed-top.navbar-expand-md.navbar-dark.bg-dark.navbar-custom
         li.nav-item
           = link_to "スレッドを作成する", new_topic_path, class: "nav-link"
         li.nav-item
-          = link_to "ウォッチリスト", "#", class: "nav-link"
+          = link_to "ウォッチリスト", watchlists_path, class: "nav-link"
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
             = current_user.name

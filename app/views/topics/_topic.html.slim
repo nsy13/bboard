@@ -15,10 +15,11 @@
     = " #{topic.posts.size}"
   .rightSection__topic--watch
     = icon('fas', 'eye')
-    // TODO: 動的に
-    = " #{115} (仮)"
+    = " #{count_watching_user(topic)}"
   .rightSection__topic--detailLink
     = link_to "スレッドを開く", topic_path(topic)
   .rightSection__topic--watchList
-    = link_to "ウォッチリストに加える", "#"
-
+    - if user_signed_in? && watching_topic?(topic)
+      = link_to "ウォッチリストから削除する", watchlist_path(id: watching_topic_id(topic)), method: :delete
+    - else
+      = link_to "ウォッチリストに加える", watchlists_path(id: topic.id), method: :post

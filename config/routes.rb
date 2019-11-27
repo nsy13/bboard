@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :topics
   resources :posts
   resources :categories, only: :show
+  resources :watchlists, only: [:index, :create, :destroy]
 end

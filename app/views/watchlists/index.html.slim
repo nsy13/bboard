@@ -1,0 +1,12 @@
+.row
+  .watchList.col-md-10.offset-md-1
+    .watchList__title
+      h4 ウォッチリスト
+    .watchList__topicBody
+      - if @watching_topics.blank?
+        .watchList__topicBody--noTopics
+          p ウォッチリストに登録されているスレッドはありません
+      - else
+        = render @watching_topics
+      .paginate
+        = paginate @watching_topics

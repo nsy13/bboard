@@ -10,7 +10,9 @@ user = User.first
 end
 
 5.times do |n|
-  topic = user.topics.create!(name: "#{Faker::Game.title} について語るスレ")
+  topic = Topic.new(name: "#{Faker::Game.title} について語るスレ")
+  topic.user = user
+  topic.save!
   3.times do |i|
     TopicCategory.create!(topic_id: topic.id, category_id: rand(1..20))
   end
@@ -26,7 +28,9 @@ end
                email: "no.#{n + 2}-#{Faker::Internet.email}",
                password: "password")
   user = User.find(n + 2)
-  topic = user.topics.create!(name: "#{Faker::Music.band}総合スレ")
+  topic = Topic.new(name: "#{Faker::Music.band}総合スレ")
+  topic.user = user
+  topic.save!
   2.times do |i|
     TopicCategory.create!(topic_id: topic.id, category_id: rand(1..20))
   end
@@ -38,6 +42,13 @@ end
     post.topic = Topic.find(rand(1..5))
     post.save!
   end
+end
+
+user = User.first
+20.times do |n|
+  watchlist = user.watchlists.build
+  watchlist.topic = Topic.find(n + 5)
+  watchlist.save!
 end
 
 100.times do |n|

@@ -6,4 +6,8 @@ module ApplicationHelper
   def watching_topic_id(topic)
     Watchlist.find_by(user_id: current_user.id, topic_id: topic.id).id
   end
+
+  def count_watching_user(topic)
+    Watchlist.where(topic_id: topic.id).size
+  end
 end

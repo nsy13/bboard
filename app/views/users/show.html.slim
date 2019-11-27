@@ -13,11 +13,12 @@
           | メールアドレス
         .leftSection__profile--email
           = @user.email
-        .leftSection__editLink
-          = link_to "編集", edit_user_registration_path
       - if current_user.admin?
         .leftSection__editLink
-          = link_to "編集（管理者権限）", edit_user_registration_path
+          = link_to "編集", edit_user_registration_path
+      - elsif @user == current_user
+        .leftSection__editLink
+          = link_to "編集", edit_user_registration_path
   .rightSection.col-md-8.offset-md-1
     .rightSection__title
       h4 作成スレッド一覧

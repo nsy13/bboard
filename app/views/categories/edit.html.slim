@@ -1,0 +1,12 @@
+- provide(:title, "カテゴリー名の変更")
+.editCategory.row
+  .editCategory__title.col-md-6.offset-md-3
+    h2 カテゴリー名を変更する
+  .editCategory__form.col-md-6.offset-md-3
+    = form_with model: @category, local: true, class: "Category__form form-group" do |f|
+      = render "shared/error_messages", object: f.object
+      .editCategory__form--field
+        = f.label "カテゴリー名"
+        = f.text_field :name, autofocus: true, class: "form-control", require: true
+      .editCategory__form--actions
+        = f.submit "変更する", class: "btn btn-primary w-100"

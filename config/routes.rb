@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :topics
   resources :posts
-  resources :categories, only: :show
+  resources :categories
   resources :watchlists, only: [:index, :create, :destroy]
 end

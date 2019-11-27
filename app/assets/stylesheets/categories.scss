@@ -28,3 +28,76 @@
   margin: 0 10px 10px 10px;
   padding: 5px;
 }
+
+.newCategory {
+  margin: 50px 0;
+}
+
+.newCategory__title {
+  text-align: center;
+}
+
+.newCategory__form {
+  margin-top: 10px;
+  .newCategory__form--field {
+    margin-top: 30px;
+  }
+  .newCategory__form--actions {
+    margin-top: 50px;
+  }
+}
+
+.category__index {
+  margin: 30px 0;
+}
+
+.category__index--newLink {
+  text-align: center;
+}
+
+.category__index--body {
+  background-color: #fff;
+  margin: 30px 0;
+}
+
+.category__index--item {
+  border-top: solid 1px rgb(230, 230, 230);
+  padding: 10px 0;
+}
+
+.category__index--name {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.category__index--link {
+  float: right;
+}
+
+.category__index--editLink {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.category__index--deleteLink {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.editCategory {
+  margin: 50px 0;
+}
+
+.editCategory__title {
+  text-align: center;
+}
+
+.editCategory__form {
+  margin-top: 10px;
+  .editCategory__form--field {
+    margin-top: 30px;
+  }
+  .editCategory__form--actions {
+    margin-top: 50px;
+  }
+}

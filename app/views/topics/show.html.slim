@@ -28,7 +28,7 @@
     .threadDetail__editLink
       = link_to "スレッド名とカテゴリーの編集", edit_topic_path(@topic)
     .threadDetail__deleteLink
-      = link_to "スレッドを削除（管理者権限）", topic_path(@topic), method: :delete
+      = link_to "スレッドを削除（管理者権限）", topic_path(@topic), method: :delete, data: { confirm: "本当に削除しますか？" }
   - elsif user_signed_in? && @topic.user == current_user
     .threadDetail__editLink
       = link_to "スレッド名とカテゴリーの編集", edit_topic_path(@topic)

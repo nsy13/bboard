@@ -1,0 +1,16 @@
+- provide(:title, "カテゴリー管理")
+.category__index.col-md-8.offset-md-2
+  .category__index--newLink
+    = link_to "新規カテゴリーの作成", new_category_path
+  .category__index--body
+    - @categories.each do |category|
+      .category__index--item
+        .category__index--name
+          = category.name
+        .category__index--link
+          .category__index--editLink
+            = link_to "編集", edit_category_path(category)
+          .category__index--deleteLink
+            = link_to "削除", category_path(id: category.id), method: :delete, data: { confirm: "本当に削除しますか？"}
+  .category__index--pagenate
+    = paginate @topics

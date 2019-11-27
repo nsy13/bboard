@@ -1,19 +1,17 @@
 class WatchlistsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :show, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :show, :destroy]
+
+  def index
+    watching_topics = Watchlist.where(user_id: current_user).map { |list| Topic.find(list.topic_id) }
+    @watching_topics = Kaminari.paginate_array(watching_topics).page(params[:page]).per(TOPICS_NUMBER)
+    @categories = Category.order(:name).all
+  end
 
   def create
     topic = Topic.find(params[:id])
     Watchlist.create(user_id: current_user.id, topic_id: topic.id)
     flash[:success] = "ウォッチリストに登録しました"
     redirect_to root_path
-  end
-
-  def show
-
-  end
-
-  def update
-
   end
 
   def destroy

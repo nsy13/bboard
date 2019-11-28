@@ -1,3 +1,7 @@
+.newThread {
+  margin: 50px 0;
+}
+
 .newThread__title {
   text-align: center;
 }
@@ -12,6 +16,10 @@
   }
 }
 
+.editThread {
+  margin: 50px 0;
+}
+
 .editThread__title {
   text-align: center;
 }
@@ -24,6 +32,10 @@
   .editThread__form--actions {
     margin-top: 50px;
   }
+}
+
+.threadDetail {
+  margin: 50px 0;
 }
 
 .threadDetail__title {
@@ -56,5 +68,9 @@
 
 .threadDetail__editLink {
   text-align: center;
-  // font-size: 0.7em;
+}
+
+.threadDetail__deleteLink {
+  text-align: center;
+  margin-top: 20px;
 }

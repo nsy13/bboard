@@ -1,0 +1,12 @@
+- provide(:title, "新しいカテゴリー")
+.newCategory.row
+  .newCategory__title.col-md-6.offset-md-3
+    h2 カテゴリーを作成する
+  .newCategory__form.col-md-6.offset-md-3
+    = form_with model: @category, local: true, class: "form-group" do |f|
+      = render "shared/error_messages", object: f.object
+      .newCategory__form--field
+        = f.label "カテゴリー名"
+        = f.text_field :name, autofocus: true, class: "form-control", required: true
+      .newCategory__form--actions
+        = f.submit "作成する", class: "btn btn-primary w-100"

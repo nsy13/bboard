@@ -16,13 +16,13 @@ RSpec.describe Watchlist, type: :model do
   end
 
   it "is valid with diffrent combination(user_id & topic_id)" do
-    watchlist1.save!
+    watchlist1.save
     expect(watchlist2).to be_valid
   end
   it "is invalid with the same combination(user_id & topic_id)" do
     watchlist2.user = watchlist1.user
     watchlist2.topic = watchlist1.topic
-    watchlist1.save!
+    watchlist1.save
     watchlist2.valid?
     expect(watchlist2.errors[:topic_id]).to include("はすでに存在します")
   end

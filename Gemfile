@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
+gem 'ransack'
 gem 'rubocop-airbnb'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
@@ -25,12 +26,14 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'bullet'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

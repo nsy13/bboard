@@ -5,3 +5,6 @@
     - categories.each do |cat|
       .leftSection__category--item
         = link_to cat.name, cat
+  - if user_signed_in? && current_user.admin?
+    .leftSection__adminLink
+      = link_to "カテゴリーの管理", categories_path

@@ -1,6 +1,13 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_owner, only: [:edit, :update]
+  before_action :admin_user, only: :destroy
+
+  def index
+    store_location
+    @topics = @q.result.includes(:watchlists, posts: :user).page(params[:page]).per(TOPICS_NUMBER)
+    @categories = Category.order(:name).all
+  end
 
   def new
     @topic = Topic.new
@@ -9,7 +16,8 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.topics.build(topic_params)
+    @topic = Topic.new(topic_params)
+    @topic.user = current_user
     post = @topic.posts.build(topic_post_params)
     post.user = current_user
     select_categories = params[:select_categories] || ""
@@ -35,7 +43,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @categories = @topic.categories
     @post = Post.new
-    @posts = @topic.posts.page(params[:page]).per(POSTS_NUMBER)
+    @posts = @topic.posts.includes(:user).page(params[:page]).per(POSTS_NUMBER)
   end
 
   def edit
@@ -66,12 +74,15 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    Topic.find(params[:id]).destroy
+    flash[:success] = "スレッドを削除しました"
+    redirect_to root_path
   end
 
   private
 
   def topic_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, :user_id)
   end
 
   def topic_post_params
@@ -80,7 +91,7 @@ class TopicsController < ApplicationController
 
   def correct_owner
     @topic = Topic.find(params[:id])
-    unless @topic.user == current_user
+    unless @topic.user == current_user || current_user.admin?
       flash[:danger] = "権限がありません"
       redirect_to root_path
     end

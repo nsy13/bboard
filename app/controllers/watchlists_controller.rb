@@ -16,7 +16,7 @@ class WatchlistsController < ApplicationController
   end
 
   def destroy
-    Watchlist.find(params[:id]).delete
+    Watchlist.find(params[:id]).destroy
     flash[:success] = "ウォッチリストから削除しました"
     redirect_back_or root_path
   end

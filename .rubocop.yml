@@ -39,3 +39,7 @@ Layout/AlignParameters:
 Style/BlockComments:
   Exclude:
     - "spec/spec_helper.rb"
+
+Airbnb/SimpleUnless:
+  Exclude:
+    - "app/controllers/topics_controller.rb"

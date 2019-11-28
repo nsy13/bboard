@@ -14,7 +14,7 @@ module ApplicationHelper
   def dynamic_title(title)
     base_title = "bboard"
     if title.present?
-      "#{ title } | #{ base_title }"
+      "#{title} | #{base_title}"
     else
       base_title
     end

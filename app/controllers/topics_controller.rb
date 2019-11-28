@@ -91,7 +91,7 @@ class TopicsController < ApplicationController
 
   def correct_owner
     @topic = Topic.find(params[:id])
-    unless @topic.user == current_user
+    unless @topic.user == current_user || current_user.admin?
       flash[:danger] = "権限がありません"
       redirect_to root_path
     end

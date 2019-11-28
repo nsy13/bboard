@@ -25,7 +25,8 @@ class CategoriesController < ApplicationController
     store_location
     @categories = Category.order(:name).all
     @category = Category.find(params[:id])
-    @topics = @category.topics.includes(:watchlists, posts: :user).order(:updated_at).page(params[:page]).per(TOPICS_NUMBER)
+    @topics = @category.topics.includes(:watchlists, posts: :user).order(updated_at: :DESC).
+      page(params[:page]).per(TOPICS_NUMBER)
   end
 
   def edit

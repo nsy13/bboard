@@ -19,7 +19,7 @@ end
 end
 
 5.times do |n|
-  topic = Topic.new(name: "#{ Faker::Games::Pokemon.name } について語るスレ")
+  topic = Topic.new(name: "#{Faker::Games::Pokemon.name} について語るスレ")
   topic.user = user
   topic.save!
   3.times do |i|
@@ -34,9 +34,9 @@ end
 
 20.times do |n|
   user = User.create!(name: Faker::Internet.username,
-                      email: "no.#{ n + 2 }-#{ Faker::Internet.email }",
+                      email: "no.#{n + 2}-#{Faker::Internet.email}",
                       password: "password")
-  topic = Topic.new(name: "#{ Faker::Music.band }総合スレ")
+  topic = Topic.new(name: "#{Faker::Music.band}総合スレ")
   topic.user = user
   topic.save!
   2.times do |i|
@@ -46,7 +46,7 @@ end
   post.user = user
   post.save!
   10.times do |i|
-    post = user.posts.build(content: "これは#{ user.name }による投稿！このスレッドは非常に興味深いです！みなさんの書き込みでさらに賑わうことを望んでいます！")
+    post = user.posts.build(content: "これは#{user.name}による投稿！このスレッドは非常に興味深いです！みなさんの書き込みでさらに賑わうことを望んでいます！")
     post.topic = Topic.find(rand(1..5))
     post.save!
   end

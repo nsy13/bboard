@@ -1,24 +1,45 @@
-# README
+# bboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+シンプルな掲示板アプリです。  
+https://bboard-11.herokuapp.com/
 
-Things you may want to cover:
+## 使用した技術
 
-* Ruby version
+- デプロイ
+    - heroku
+- テスト
+    - RSpec
+- リンター
+    - RuboCop Airbnb
+- 検索
+    - ransack
+- ユーザー認証
+    - Devise
+- DB
+    - PostgreSQL
+- ページネーション
+    - kaminari
+- デザイン
+    - slim
+    - bootstrap
+    - font-awesome-sass
+    - jquery
 
-* System dependencies
+## 概要
 
-* Configuration
+bboardは、カテゴライズされたスレッドにコメントを投稿する形式のシンプルな掲示板アプリです。
+特徴的な機能はありませんが、使いやすい、見やすいUIを心がけて開発を進めました。
 
-* Database creation
+## 機能
 
-* Database initialization
+- スレッドの作成
+- スレッドへのコメント投稿、閲覧
+- ウォッチリスト機能（お気に入りスレッド機能）
+- スレッド検索機能
+- ユーザー認証
+- カテゴリー機能
 
-* How to run the test suite
+## Requirement
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ruby 2.5.7  
+rails 5.2.3

@@ -18,6 +18,13 @@ services:
     stdin_open: true
     tty: true
     command: bundle exec rails server -b 0.0.0.0
+  angular:
+    build: angular
+    ports:
+      - "4200:4200"
+    volumes:
+      - ".:/bboard"
+    tty: true
 volumes:
   bundle:
     driver: local

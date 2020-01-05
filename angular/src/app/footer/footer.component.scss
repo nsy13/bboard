@@ -1,0 +1,22 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.nav-item {
+  margin: 0 10px;
+  font-size: 0.8em;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  a {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+      color: rgb(0, 106, 245);
+      transition: 0.5s;
+    }
+  }
+}

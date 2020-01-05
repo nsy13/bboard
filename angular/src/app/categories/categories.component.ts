@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from './category';
 
 @Component({
   selector: 'app-categories',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-
+  categories: Category[] = [
+    { name: "Ruby" },
+    { name: "Angular" },
+    { name: "Vue.js" },
+    { name: "Python" },
+    { name: "React" }
+  ]
   constructor() { }
 
   ngOnInit() {

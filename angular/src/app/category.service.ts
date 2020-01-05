@@ -7,11 +7,11 @@ import { Category } from './categories/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  categoryApiUrl = "http://localhost:3000"
+  categoriesApiUrl = "http://localhost:3000"
 
   constructor(private http: HttpClient) { }
 
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoryApiUrl)
+  getCategories(): Observable<any> {
+    return this.http.get(this.categoriesApiUrl)
   }
 }

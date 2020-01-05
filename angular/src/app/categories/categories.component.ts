@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from './category';
+import { Category, CATEGORIES } from './category';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-categories',
@@ -7,28 +8,17 @@ import { Category } from './category';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  categories: Category[] = [
-    { name: "Ruby" },
-    { name: "Angular" },
-    { name: "Vue.js" },
-    { name: "Python" },
-    { name: "Ruby" },
-    { name: "Angular" },
-    { name: "Vue.js" },
-    { name: "Python" },
-    { name: "Ruby" },
-    { name: "Angular" },
-    { name: "Vue.js" },
-    { name: "Python" },
-    { name: "Ruby" },
-    { name: "Angular" },
-    { name: "Vue.js" },
-    { name: "Python" },
-    { name: "React" }
-  ]
-  constructor() { }
+  categories: Category[];
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
+    this.getCategories()
+  }
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe(
+      categories => this.categories = categories
+    )
   }
 
 }

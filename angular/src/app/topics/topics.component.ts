@@ -12,6 +12,14 @@ export class TopicsComponent implements OnInit {
     { name: "Railsファンの集い" },
     { name: "プログラミング初心者スレ" },
     { name: "未経験から転職する方法まとめ" },
+    { name: "Ruby Gemについて語るスレ" },
+    { name: "Railsファンの集い" },
+    { name: "プログラミング初心者スレ" },
+    { name: "未経験から転職する方法まとめ" },
+    { name: "Ruby Gemについて語るスレ" },
+    { name: "Railsファンの集い" },
+    { name: "プログラミング初心者スレ" },
+    { name: "未経験から転職する方法まとめ" },
     { name: "Angular勉強会" },
   ]
   constructor() { }

@@ -1,3 +1,11 @@
-<p>home works!</p>
-<app-categories></app-categories>
-<app-topics></app-topics>
+<mat-grid-list class="gridBody" cols="12">
+  <mat-grid-tile class="space" colspan="1" rowspan="5"></mat-grid-tile>
+  <mat-grid-tile class="leftSection" colspan="2" rowspan="5">
+    <app-categories class="app-categories"></app-categories>
+  </mat-grid-tile>
+  <mat-grid-tile class="space" colspan="1" rowspan="5"></mat-grid-tile>
+  <mat-grid-tile class="rightSection" colspan="7" rowspan="5">
+    <app-topics class="app-topics"></app-topics>
+  </mat-grid-tile>
+  <mat-grid-tile class="space" colspan="1" rowspan="5"></mat-grid-tile>
+</mat-grid-list>

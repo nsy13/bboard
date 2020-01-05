@@ -8,11 +8,14 @@
 }
 
 .mat-toolbar.mat-primary {
-  position: sticky;
+  background-color: #fff;
+  color: rgb(175, 175, 175);
+  height: 30px;
+  position: absolute;
   bottom: 0;
   z-index: 1;
   a {
-    color: #fff;
+    color: rgb(175, 175, 175);
     text-decoration: none;
     &:hover {
       color: rgb(0, 106, 245);

@@ -1,0 +1,12 @@
+.topic-card {
+  margin: 50px 0;
+  &:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+a {
+  text-decoration: none;
+}

@@ -12,6 +12,18 @@ export class CategoriesComponent implements OnInit {
     { name: "Angular" },
     { name: "Vue.js" },
     { name: "Python" },
+    { name: "Ruby" },
+    { name: "Angular" },
+    { name: "Vue.js" },
+    { name: "Python" },
+    { name: "Ruby" },
+    { name: "Angular" },
+    { name: "Vue.js" },
+    { name: "Python" },
+    { name: "Ruby" },
+    { name: "Angular" },
+    { name: "Vue.js" },
+    { name: "Python" },
     { name: "React" }
   ]
   constructor() { }

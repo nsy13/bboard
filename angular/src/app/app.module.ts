@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { TopicsComponent } from './topics/topics.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

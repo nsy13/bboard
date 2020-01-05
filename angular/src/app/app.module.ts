@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     CategoriesComponent,
     TopicsComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    TopicDetailComponent
   ],
   imports: [
     BrowserModule,
